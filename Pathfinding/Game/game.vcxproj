@@ -60,7 +60,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>CommonPathfindingLib.lib;allegro-5.0.10-monolith-md-debug.lib;DeanLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>CommonPathfindingLib.lib;allegro-5.0.10-monolith-md.lib;DeanLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\CommonPathfindingLib\Debug;..\..\..\..\External libs\Allegro5\lib;..\..\..\..\DeanLib\debug</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>

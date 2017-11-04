@@ -6,9 +6,16 @@ i:\ai\master\gameai\pathfinding\pathfinding\debug\editor.ilk
 i:\ai\master\gameai\pathfinding\pathfinding\debug\editor.exe
 i:\ai\master\gameai\pathfinding\pathfinding\debug\editor.map
 i:\ai\master\gameai\pathfinding\pathfinding\debug\editor.pdb
-i:\ai\master\gameai\pathfinding\pathfinding\editor\debug\editor.tlog\cl.command.1.tlog
-i:\ai\master\gameai\pathfinding\pathfinding\editor\debug\editor.tlog\cl.read.1.tlog
-i:\ai\master\gameai\pathfinding\pathfinding\editor\debug\editor.tlog\cl.write.1.tlog
-i:\ai\master\gameai\pathfinding\pathfinding\editor\debug\editor.tlog\link.command.1.tlog
-i:\ai\master\gameai\pathfinding\pathfinding\editor\debug\editor.tlog\link.read.1.tlog
-i:\ai\master\gameai\pathfinding\pathfinding\editor\debug\editor.tlog\link.write.1.tlog
+e:\ai\ai_project4\game ai\pathfinding\pathfinding\editor\debug\editor.obj
+e:\ai\ai_project4\game ai\pathfinding\pathfinding\editor\debug\main.obj
+e:\ai\ai_project4\game ai\pathfinding\pathfinding\editor\debug\vc141.idb
+e:\ai\ai_project4\game ai\pathfinding\pathfinding\editor\debug\vc141.pdb
+e:\ai\ai_project4\game ai\pathfinding\pathfinding\debug\editor.pdb
+e:\ai\ai_project4\game ai\pathfinding\pathfinding\debug\editor.exe
+e:\ai\ai_project4\game ai\pathfinding\pathfinding\debug\editor.ilk
+e:\ai\ai_project4\game ai\pathfinding\pathfinding\editor\debug\editor.tlog\cl.command.1.tlog
+e:\ai\ai_project4\game ai\pathfinding\pathfinding\editor\debug\editor.tlog\cl.read.1.tlog
+e:\ai\ai_project4\game ai\pathfinding\pathfinding\editor\debug\editor.tlog\cl.write.1.tlog
+e:\ai\ai_project4\game ai\pathfinding\pathfinding\editor\debug\editor.tlog\link.command.1.tlog
+e:\ai\ai_project4\game ai\pathfinding\pathfinding\editor\debug\editor.tlog\link.read.1.tlog
+e:\ai\ai_project4\game ai\pathfinding\pathfinding\editor\debug\editor.tlog\link.write.1.tlog
