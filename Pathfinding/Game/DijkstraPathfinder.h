@@ -3,6 +3,7 @@
 
 #include "GridPathfinder.h"
 #include <vector>
+#include <queue>
 
 
 class Path;
@@ -19,6 +20,14 @@ public:
 	const Path& findPath(Node* pFrom, Node* pTo);//make sure to delete the path when you are done!
 
 private:
+	
+};
+
+struct NodeRecord
+{
+	Node* mNode;
+	Node* mConnection;
+	float mCostSoFar;
 };
 
 #endif

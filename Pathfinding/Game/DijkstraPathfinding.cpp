@@ -21,59 +21,86 @@ DijkstraPathfinder::~DijkstraPathfinder()
 
 const Path& DijkstraPathfinder::findPath(Node* pFrom, Node* pTo)
 {
-	gpPerformanceTracker->clearTracker("path");
-	gpPerformanceTracker->startTracking("path");
-	//allocate nodes to visit list and place starting node in it
-	list<Node*> nodesToVisit;
-	nodesToVisit.push_front(pFrom);
+	NodeRecord* pCurrent;
+	std::vector<Connection*> pConnections;
+	Node* endNode;
+	float endNodeCost;
 
-#ifdef VISUALIZE_PATH
-	mVisitedNodes.clear();
-	mVisitedNodes.push_back(pFrom);
-#endif
+	// initialize the record for the start node
+	NodeRecord* pStartRecord;
+	pStartRecord->mNode = pFrom;
+	pStartRecord->mConnection = NULL;
+	pStartRecord->mCostSoFar = 0;
 
-	mPath.clear();
+	// initialize the open and closed lists
+	std::priority_queue<NodeRecord*> open;
+	open.push(pStartRecord);
+	std::vector<Node*> close;
 
-	Node* pCurrentNode = NULL;
-	bool toNodeAdded = false;
-
-	while (pCurrentNode != pTo && nodesToVisit.size() > 0)
+	// iterate through processing each node
+	while (open.size())
 	{
-		//get current node from front of list
-		pCurrentNode = nodesToVisit.front();
-		//remove node from list
-		nodesToVisit.pop_front();
-		//add Node to Path
-		mPath.addNode(pCurrentNode);
+		// find the smallest element in the open list
+		pCurrent = open.top();
 
-		//get the Connections for the current node
-		vector<Connection*> connections = mpGraph->getConnections(pCurrentNode->getId());
-
-		//add all toNodes in the connections to the "toVisit" list, if they are not already in the list
-		for (unsigned int i = 0; i<connections.size(); i++)
+		// if it is the goal node, then terminate
+		if (pCurrent->mNode == pTo)
 		{
-			Connection* pConnection = connections[i];
-			Node* pTempToNode = connections[i]->getToNode();
-			if (!toNodeAdded &&
-				!mPath.containsNode(pTempToNode) &&
-				find(nodesToVisit.begin(), nodesToVisit.end(), pTempToNode) == nodesToVisit.end())
-			{
-				nodesToVisit.push_front(pTempToNode);//uncomment me for depth-first search
-													 //nodesToVisit.push_back( pTempToNode );//uncomment me for breadth-first search
-				if (pTempToNode == pTo)
-				{
-					toNodeAdded = true;
-				}
-#ifdef VISUALIZE_PATH
-				mVisitedNodes.push_back(pTempToNode);
-#endif
-
-			}
+			break;
 		}
-	}
 
-	gpPerformanceTracker->stopTracking("path");
-	mTimeElapsed = gpPerformanceTracker->getElapsedTime("path");
+		// otherwise get its outgoing connections
+		pConnections = mpGraph->getConnections(pCurrent->mNode->getId());
+
+		// loop through each connection in turn
+		for (int i = 0; i < pConnections.size() - 1; i++)
+		{
+			// get the cost estimate for the end node
+			endNode = pConnections[i]->getToNode();
+			endNodeCost = pCurrent->mCostSoFar + pConnections[i]->getCost();
+
+			// skip if the node is closed
+			bool skip = false;
+			for (int i = 0; i < close.size(); i++)
+			{
+				if (close[i] == endNode)
+				{
+					skip = true;
+				}
+			}
+
+			if (skip == true)
+			{
+				for (int i = 0; i < open.size(); i++)
+				{
+					if (open[i])
+					{
+						skip = true;
+					}
+				}
+			}
+
+			// ...or if it is open and we've found a worse route
+
+				// here we foind the record in the open list corresponding to the end node
+
+			// otherwise we know we've got an unvisited node, so make a record for it
+
+			// we're here if we need to update the node - update the cost and connection
+
+			// add it to the open list
+
+		// we've finished looking at the connections for the current node, so add it to the closed list and remove it from the open list
+
+	// we're here if we've either found the goal. or if we've no more nodes to search, find which
+
+		// we've run out of nodes without finding the goal, so there's no solution
+
+		// compile the list of connections in the path
+
+		// work back long the path, accumlating connections
+
+		// reverse the path and return it
 
 	return mPath;
 
