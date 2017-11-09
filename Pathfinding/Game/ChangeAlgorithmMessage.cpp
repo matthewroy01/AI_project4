@@ -1,9 +1,15 @@
 #include "ChangeAlgorithmMessage.h"
+#include "GameApp.h"
+#include "GridPathfinder.h"
 
-ChangeAlgorithmMessage::ChangeAlgorithmMessage(int type)
+ChangeAlgorithmMessage::ChangeAlgorithmMessage(GameApp* app, int type, int r, int g, int b)
 	:GameMessage(CHANGE_ALGORITHM_MESSAGE)
 {
+	mApp = app;
 	mType = type;
+	mR = r;
+	mG = g;
+	mB = b;
 }
 
 ChangeAlgorithmMessage::~ChangeAlgorithmMessage()
@@ -17,10 +23,14 @@ void ChangeAlgorithmMessage::process()
 		case 0:
 		{
 			std::cout << "ChangeAlgorithmMessage: switching to Dijkstra" << std::endl;
+			mApp->getPathfinder()->setCurrentColor(mR, mG, mB);
+			break;
 		}
 		case 1:
 		{
 			std::cout << "ChangeAlgorithmMessage: switching to A*" << std::endl;
+			mApp->getPathfinder()->setCurrentColor(mR, mG, mB);
+			break;
 		}
 		default:
 		{

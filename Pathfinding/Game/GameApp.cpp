@@ -20,6 +20,10 @@
 #include "DebugDisplay.h"
 #include "PathfindingDebugContent.h"
 
+#include "DijkstraPathfinder.h"
+#include "AStarPathfinder.h"
+#include "InputManager.h"
+
 #include <fstream>
 #include <vector>
 
@@ -63,7 +67,9 @@ bool GameApp::init()
 	//init the nodes and connections
 	mpGridGraph->init();
 
-	mpPathfinder = new DepthFirstPathfinder(mpGridGraph);
+	/*mpPathfinder = new DepthFirstPathfinder(mpGridGraph);*/
+	mpPathfinder = new DijkstraPathfinder(mpGridGraph);
+
 
 	//load buffers
 	mpGraphicsBufferManager->loadBuffer( BACKGROUND_ID, "wallpaper.bmp");
@@ -78,6 +84,8 @@ bool GameApp::init()
 	//debug display
 	PathfindingDebugContent* pContent = new PathfindingDebugContent( mpPathfinder );
 	mpDebugDisplay = new DebugDisplay( Vector2D(0,12), pContent );
+
+	mpInputManager = new InputManager();
 
 	mpMasterTimer->start();
 	return true;
@@ -139,6 +147,8 @@ void GameApp::processLoop()
 			lastPos = pos;
 		}
 	}
+
+	mpInputManager->Update();
 
 	//should be last thing in processLoop
 	Game::processLoop();

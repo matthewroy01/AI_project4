@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Pathfinder.h"
+#include <allegro5/allegro.h>
 class GridGraph;
 class GridVisualizer;
 class GraphicsBuffer;
@@ -15,6 +16,13 @@ public:
 	virtual ~GridPathfinder();
 
 	virtual const Path& findPath( Node* pFrom, Node* pTo ) = 0;
+
+	void setCurrentColor(int r, int g, int b)
+	{
+		currentColor.r = r;
+		currentColor.g = g;
+		currentColor.b = b;
+	}
 	
 #ifdef VISUALIZE_PATH
 	//just for visualization
@@ -26,4 +34,19 @@ protected:
 #endif
 
 	double mTimeElapsed;
+
+private:
+	ALLEGRO_COLOR currentColor;
+};
+
+struct NodeRecord
+{
+	Node* mNode;
+	NodeRecord* mConnection;
+	float mCostSoFar;
+
+	bool operator<(const NodeRecord node)
+	{
+		return this->mCostSoFar < node.mCostSoFar;
+	}
 };

@@ -4,11 +4,16 @@
 #include "GraphicsSystem.h"
 #include "Vector2D.h"
 #include "GameMessageManager.h"
+#include "GameApp.h"
+
+#include "ChangeAlgorithmMessage.h"
 
 InputManager::InputManager()
 {
 	mDdown = false;
 	mAdown = false;
+
+	pGameApp = dynamic_cast<GameApp*>(gpGame);
 
 	if (!init())
 	{
@@ -50,15 +55,19 @@ void InputManager::Update()
 	}
 
 	//if 'd' key is pressed, switch current algorithm to Dijkstra
-	if (al_key_down(&keyState, ALLEGRO_KEY_D))
+	if (al_key_down(&keyState, ALLEGRO_KEY_D) && !mDdown)
 	{
-		std::cout << "switching to Dijkstra" << std::endl;
+		mDdown = true;
+		GameMessage* pMessage = new ChangeAlgorithmMessage(pGameApp, 0, 255, 0, 0);
+		pGameApp->getMessageManager()->addMessage(pMessage, 0);
 	}
 
 	//if 'a' key is pressed, switch current algorithm to A*
-	if (al_key_down(&keyState, ALLEGRO_KEY_A))
+	if (al_key_down(&keyState, ALLEGRO_KEY_A) && !mAdown)
 	{
-		std::cout << "switching to A*" << std::endl;
+		mAdown = true;
+		GameMessage* pMessage = new ChangeAlgorithmMessage(pGameApp, 1, 0, 0, 255);
+		pGameApp->getMessageManager()->addMessage(pMessage, 0);
 	}
 
 	// check to see if you're still pressing the button so you can't create or delete a unit by just holding the key

@@ -10,6 +10,7 @@ GridPathfinder::GridPathfinder( GridGraph* pGraph )
 :Pathfinder(pGraph)
 ,mTimeElapsed(0.0)
 {
+	currentColor = al_map_rgb(255, 0, 0);
 #ifdef VISUALIZE_PATH
 	mpVisualizer = NULL;
 #endif
@@ -45,7 +46,7 @@ void GridPathfinder::drawVisualization( Grid* pGrid, GraphicsBuffer* pDest )
 	{
 		for (unsigned int i = 1; i < numNodes-1; i++)
 		{
-			mpVisualizer->addColor(mPath.peekNode(i)->getId(), currentPathColor);
+			mpVisualizer->addColor(mPath.peekNode(i)->getId(), currentColor);
 			float lerpVal = lerp( i, 0, numNodes );
 			currentPathColor.r = 1.0f - lerpVal;
 		}

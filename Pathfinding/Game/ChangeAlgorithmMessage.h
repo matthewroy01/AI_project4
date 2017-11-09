@@ -5,16 +5,19 @@
 
 #include "Vector2D.h"
 
+class GameApp;
+
 class ChangeAlgorithmMessage : public GameMessage
 {
 public:
-	ChangeAlgorithmMessage(int type);
+	ChangeAlgorithmMessage(GameApp* app, int type, int r, int g, int b);
 	~ChangeAlgorithmMessage();
 
 	void process();
 
 private:
-	int mType;
+	GameApp* mApp;
+	int mType, mR, mG, mB;
 };
 
 #endif CHANGEALGORITHMMESSAGE

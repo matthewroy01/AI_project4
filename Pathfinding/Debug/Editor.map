@@ -1,6 +1,6 @@
  Editor
 
- Timestamp is 59fe020a (Sat Nov  4 14:08:10 2017)
+ Timestamp is 5a039ebd (Wed Nov  8 19:18:05 2017)
 
  Preferred load address is 00400000
 
@@ -34,9 +34,9 @@
  0003:00007f78 00000108H .rtc$TZZ                DATA
  0003:00008080 0000346aH .xdata$x                DATA
  0003:0000b4ea 00000000H .edata                  DATA
- 0004:00000000 000001a0H .data                   DATA
- 0004:000001a0 00000448H .data$r                 DATA
- 0004:000005e8 00000504H .bss                    DATA
+ 0004:00000000 00000180H .data                   DATA
+ 0004:00000180 00000448H .data$r                 DATA
+ 0004:000005c8 00000504H .bss                    DATA
  0005:00000000 000004b4H .idata$5                DATA
  0005:000004b4 00000064H .idata$2                DATA
  0005:00000518 00000014H .idata$3                DATA
@@ -1872,48 +1872,48 @@
  0004:00000000       ?__LINE__Var@?0??_Allocate@std@@YAPAXII_N@Z@4JA 00477000     Editor.obj
  0004:00000004       ?__LINE__Var@?0??_Deallocate@std@@YAXPAXII@Z@4JA 00477004     Editor.obj
  0004:00000008       ?__LINE__Var@?0??lerp@@YAMHHH@Z@4JA 00477008     CommonPathfindingLib:Game.obj
- 0004:00000058       ___security_cookie         00477058     MSVCRTD:gs_cookie.obj
- 0004:0000005c       ___security_cookie_complement 0047705c     MSVCRTD:gs_cookie.obj
- 0004:00000064       __fltused                  00477064     MSVCRTD:fltused.obj
- 0004:00000068       ___scrt_native_dllmain_reason 00477068     MSVCRTD:utility.obj
- 0004:00000070       ?_RTC_ErrorLevels@@3PAHA   00477070     MSVCRTD:_error_.obj
- 0004:00000088       ___isa_enabled             00477088     MSVCRTD:_cpu_disp_.obj
- 0004:0000008c       ___scrt_default_matherr    0047708c     MSVCRTD:matherr.obj
- 0004:00000090       ___scrt_ucrt_dll_is_in_use 00477090     MSVCRTD:ucrt_stubs.obj
- 0004:000001a0       ??_R0?AVEditor@@@8         004771a0     Editor.obj
- 0004:000001bc       ??_R0?AVGame@@@8           004771bc     Editor.obj
- 0004:000001d4       ??_R0?AVTrackable@@@8      004771d4     Editor.obj
- 0004:000001f0       ??_R0?AVexception@std@@@8  004771f0     main.obj
- 0004:00000214       ??_R0?AVbad_cast@std@@@8   00477214     main.obj
- 0004:00000234       ??_R0?AV?$basic_filebuf@DU?$char_traits@D@std@@@std@@@8 00477234     main.obj
- 0004:0000027c       ??_R0?AV?$basic_streambuf@DU?$char_traits@D@std@@@std@@@8 0047727c     main.obj
- 0004:000002c4       ??_R0?AV?$basic_ifstream@DU?$char_traits@D@std@@@std@@@8 004772c4     main.obj
- 0004:0000030c       ??_R0?AV?$basic_istream@DU?$char_traits@D@std@@@std@@@8 0047730c     main.obj
- 0004:00000354       ??_R0?AV?$basic_ios@DU?$char_traits@D@std@@@std@@@8 00477354     main.obj
- 0004:00000394       ??_R0?AVios_base@std@@@8   00477394     main.obj
- 0004:000003b4       ??_R0?AV?$_Iosb@H@std@@@8  004773b4     main.obj
- 0004:000003d8       ??_R0?AV?$basic_ofstream@DU?$char_traits@D@std@@@std@@@8 004773d8     main.obj
- 0004:00000420       ??_R0?AV?$basic_ostream@DU?$char_traits@D@std@@@std@@@8 00477420     main.obj
- 0004:00000468       ??_R0?AVtype_info@@@8      00477468     MSVCRTD:std_type_info_static.obj
- 0004:00000484       ??_R0?AVbad_alloc@std@@@8  00477484     MSVCRTD:throw_bad_alloc.obj
- 0004:000004a8       ??_R0?AVbad_array_new_length@std@@@8 004774a8     MSVCRTD:throw_bad_alloc.obj
- 0004:00000628       ?_Stinit@?1??_Init@?$basic_filebuf@DU?$char_traits@D@std@@@std@@IAEXPAU_iobuf@@W4_Initfl@23@@Z@4U_Mbstatet@@A 00477628     main.obj
- 0004:00000634       ?_Psave@?$_Facetptr@V?$codecvt@DDU_Mbstatet@@@std@@@std@@2PBVfacet@locale@2@B 00477634     main.obj
- 0004:00000638       ?gpGame@@3PAVGame@@A       00477638     CommonPathfindingLib:Game.obj
- 0004:00000650       ?_OptionsStorage@?1??__local_stdio_printf_options@@9@4_KA 00477650     CommonPathfindingLib:Game.obj
- 0004:00000660       ?msNextID@GraphicsBufferManager@@0HA 00477660     CommonPathfindingLib:GraphicsBufferManager.obj
- 0004:00000684       ?msAllocationNum@MemoryTracker@@0HA 00477684     DeanLib:MemoryTracker.obj
- 0004:00000688       ?gMemoryTracker@@3VMemoryTracker@@A 00477688     DeanLib:MemoryTracker.obj
- 0004:00000698       ?gZeroVector2D@@3VVector2D@@A 00477698     DeanLib:Vector2D.obj
- 0004:000006c8       ___scrt_current_native_startup_state 004776c8     MSVCRTD:utility.obj
- 0004:000006cc       ___scrt_native_startup_lock 004776cc     MSVCRTD:utility.obj
- 0004:00000aa0       ___isa_available           00477aa0     MSVCRTD:_cpu_disp_.obj
- 0004:00000aa4       ___favor                   00477aa4     MSVCRTD:_cpu_disp_.obj
- 0004:00000aac       ___scrt_debugger_hook_flag 00477aac     MSVCRTD:utility_desktop.obj
- 0004:00000ab0       ?__type_info_root_node@@3U__type_info_node@@A 00477ab0     MSVCRTD:tncleanup.obj
- 0004:00000ac0       ?_OptionsStorage@?1??__local_stdio_scanf_options@@9@4_KA 00477ac0     MSVCRTD:default_local_stdio_options.obj
- 0004:00000ad4       ___dyn_tls_dtor_callback   00477ad4     <common>
- 0004:00000ae0       ___dyn_tls_init_callback   00477ae0     <common>
+ 0004:00000034       ___security_cookie         00477034     MSVCRTD:gs_cookie.obj
+ 0004:00000038       ___security_cookie_complement 00477038     MSVCRTD:gs_cookie.obj
+ 0004:00000040       __fltused                  00477040     MSVCRTD:fltused.obj
+ 0004:00000044       ___scrt_native_dllmain_reason 00477044     MSVCRTD:utility.obj
+ 0004:00000050       ?_RTC_ErrorLevels@@3PAHA   00477050     MSVCRTD:_error_.obj
+ 0004:00000068       ___isa_enabled             00477068     MSVCRTD:_cpu_disp_.obj
+ 0004:0000006c       ___scrt_default_matherr    0047706c     MSVCRTD:matherr.obj
+ 0004:00000070       ___scrt_ucrt_dll_is_in_use 00477070     MSVCRTD:ucrt_stubs.obj
+ 0004:00000180       ??_R0?AVEditor@@@8         00477180     Editor.obj
+ 0004:0000019c       ??_R0?AVGame@@@8           0047719c     Editor.obj
+ 0004:000001b4       ??_R0?AVTrackable@@@8      004771b4     Editor.obj
+ 0004:000001d0       ??_R0?AVexception@std@@@8  004771d0     main.obj
+ 0004:000001f4       ??_R0?AVbad_cast@std@@@8   004771f4     main.obj
+ 0004:00000214       ??_R0?AV?$basic_filebuf@DU?$char_traits@D@std@@@std@@@8 00477214     main.obj
+ 0004:0000025c       ??_R0?AV?$basic_streambuf@DU?$char_traits@D@std@@@std@@@8 0047725c     main.obj
+ 0004:000002a4       ??_R0?AV?$basic_ifstream@DU?$char_traits@D@std@@@std@@@8 004772a4     main.obj
+ 0004:000002ec       ??_R0?AV?$basic_istream@DU?$char_traits@D@std@@@std@@@8 004772ec     main.obj
+ 0004:00000334       ??_R0?AV?$basic_ios@DU?$char_traits@D@std@@@std@@@8 00477334     main.obj
+ 0004:00000374       ??_R0?AVios_base@std@@@8   00477374     main.obj
+ 0004:00000394       ??_R0?AV?$_Iosb@H@std@@@8  00477394     main.obj
+ 0004:000003b8       ??_R0?AV?$basic_ofstream@DU?$char_traits@D@std@@@std@@@8 004773b8     main.obj
+ 0004:00000400       ??_R0?AV?$basic_ostream@DU?$char_traits@D@std@@@std@@@8 00477400     main.obj
+ 0004:00000448       ??_R0?AVtype_info@@@8      00477448     MSVCRTD:std_type_info_static.obj
+ 0004:00000464       ??_R0?AVbad_alloc@std@@@8  00477464     MSVCRTD:throw_bad_alloc.obj
+ 0004:00000488       ??_R0?AVbad_array_new_length@std@@@8 00477488     MSVCRTD:throw_bad_alloc.obj
+ 0004:00000608       ?_Stinit@?1??_Init@?$basic_filebuf@DU?$char_traits@D@std@@@std@@IAEXPAU_iobuf@@W4_Initfl@23@@Z@4U_Mbstatet@@A 00477608     main.obj
+ 0004:00000614       ?_Psave@?$_Facetptr@V?$codecvt@DDU_Mbstatet@@@std@@@std@@2PBVfacet@locale@2@B 00477614     main.obj
+ 0004:00000618       ?gpGame@@3PAVGame@@A       00477618     CommonPathfindingLib:Game.obj
+ 0004:00000630       ?_OptionsStorage@?1??__local_stdio_printf_options@@9@4_KA 00477630     CommonPathfindingLib:Game.obj
+ 0004:00000640       ?msNextID@GraphicsBufferManager@@0HA 00477640     CommonPathfindingLib:GraphicsBufferManager.obj
+ 0004:00000664       ?msAllocationNum@MemoryTracker@@0HA 00477664     DeanLib:MemoryTracker.obj
+ 0004:00000668       ?gMemoryTracker@@3VMemoryTracker@@A 00477668     DeanLib:MemoryTracker.obj
+ 0004:00000678       ?gZeroVector2D@@3VVector2D@@A 00477678     DeanLib:Vector2D.obj
+ 0004:000006a8       ___scrt_current_native_startup_state 004776a8     MSVCRTD:utility.obj
+ 0004:000006ac       ___scrt_native_startup_lock 004776ac     MSVCRTD:utility.obj
+ 0004:00000a80       ___isa_available           00477a80     MSVCRTD:_cpu_disp_.obj
+ 0004:00000a84       ___favor                   00477a84     MSVCRTD:_cpu_disp_.obj
+ 0004:00000a8c       ___scrt_debugger_hook_flag 00477a8c     MSVCRTD:utility_desktop.obj
+ 0004:00000a90       ?__type_info_root_node@@3U__type_info_node@@A 00477a90     MSVCRTD:tncleanup.obj
+ 0004:00000aa0       ?_OptionsStorage@?1??__local_stdio_scanf_options@@9@4_KA 00477aa0     MSVCRTD:default_local_stdio_options.obj
+ 0004:00000ab4       ___dyn_tls_dtor_callback   00477ab4     <common>
+ 0004:00000ac0       ___dyn_tls_init_callback   00477ac0     <common>
  0005:00000000       __imp__GetProcAddress@8    00478000     kernel32:KERNEL32.dll
  0005:00000004       __imp__FreeLibrary@4       00478004     kernel32:KERNEL32.dll
  0005:00000008       __imp__VirtualQuery@12     00478008     kernel32:KERNEL32.dll

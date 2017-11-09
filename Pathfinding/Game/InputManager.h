@@ -14,6 +14,7 @@
 
 class Game;
 class Vector2D;
+class GameApp;
 
 class InputManager : public Trackable
 {
@@ -24,6 +25,8 @@ private:
 	// mouse and keyboard state
 	ALLEGRO_MOUSE_STATE mouseState;
 	ALLEGRO_KEYBOARD_STATE keyState;
+
+	GameApp* pGameApp;
 
 public:
 	InputManager();
