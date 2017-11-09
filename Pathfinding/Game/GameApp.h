@@ -8,6 +8,7 @@ Champlain College
 */
 
 #include "Game.h"
+#include "Vector2D.h"
 
 //forward declarations
 class GraphicsBuffer;
@@ -20,6 +21,7 @@ class GridGraph;
 class GridPathfinder;
 class DebugDisplay;
 class InputManager;
+class Vector2D;
 
 const float LOOP_TARGET_TIME = 33.3f;//how long should each frame of execution take? 30fps = 33.3ms/frame
 
@@ -45,6 +47,16 @@ public:
 	inline Grid* getGrid() { return mpGrid; };
 	inline GridGraph* getGridGraph() { return mpGridGraph; };
 	inline GridPathfinder* getGridPathfinder() { return mpPathfinder; }
+
+	void changeAlgorithm(int type);
+
+	Vector2D getLastPos() { return mLastPos; }
+	Vector2D getPos() { return mPos; }
+
+	void setLastPos(Vector2D newVal) { mLastPos = newVal; }
+	void setPos(Vector2D newVal) { mPos = newVal; }
+
+	void UpdatePaths();
 private:
 	GameMessageManager* mpMessageManager;
 	Grid* mpGrid;
@@ -55,5 +67,6 @@ private:
 	GridPathfinder* mpPathfinder;
 	InputManager* mpInputManager;
 
+	Vector2D mLastPos, mPos;
 };
 

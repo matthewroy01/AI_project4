@@ -87,6 +87,9 @@ bool GameApp::init()
 
 	mpInputManager = new InputManager();
 
+	mLastPos = Vector2D(0, 0);
+	mPos = Vector2D(0, 0);
+
 	mpMasterTimer->start();
 	return true;
 }
@@ -110,6 +113,9 @@ void GameApp::cleanup()
 
 	delete mpDebugDisplay;
 	mpDebugDisplay = NULL;
+
+	delete mpInputManager;
+	mpInputManager = NULL;
 }
 
 void GameApp::beginLoop()
@@ -131,24 +137,9 @@ void GameApp::processLoop()
 
 	mpDebugDisplay->draw( pBackBuffer );
 
-	mpMessageManager->processMessagesForThisframe();
-
-	ALLEGRO_MOUSE_STATE mouseState;
-	al_get_mouse_state( &mouseState );
-
-	if( al_mouse_button_down( &mouseState, 1 ) )//left mouse click
-	{
-		static Vector2D lastPos( 0.0f, 0.0f );
-		Vector2D pos( mouseState.x, mouseState.y );
-		if( lastPos.getX() != pos.getX() || lastPos.getY() != pos.getY() )
-		{
-			GameMessage* pMessage = new PathToMessage( lastPos, pos );
-			mpMessageManager->addMessage( pMessage, 0 );
-			lastPos = pos;
-		}
-	}
-
 	mpInputManager->Update();
+
+	mpMessageManager->processMessagesForThisframe();
 
 	//should be last thing in processLoop
 	Game::processLoop();
@@ -157,4 +148,51 @@ void GameApp::processLoop()
 bool GameApp::endLoop()
 {
 	return Game::endLoop();
+}
+
+void GameApp::changeAlgorithm(int type)
+{
+	// delete the pathfinder and debug info
+	if (mpPathfinder != NULL)
+	{
+		delete mpPathfinder;
+		mpPathfinder = NULL;
+	}
+
+	if (mpDebugDisplay != NULL)
+	{
+		delete mpDebugDisplay;
+		mpDebugDisplay = NULL;
+	}
+
+	// and then recreate it based on type
+	switch (type)
+	{
+		case 0:
+		{
+			mpPathfinder = new DijkstraPathfinder(mpGridGraph);
+			break;
+		}
+		case 1:
+		{
+			mpPathfinder = new AStarPathfinder(mpGridGraph);
+			break;
+		}
+		default:
+		{
+			std::cout << "GameApp: " << type << " is not a valid type" << std::endl;
+		}
+	}
+	//GameMessage* pMessage = new PathToMessage(mLastPos, mPos);
+	//mpMessageManager->addMessage(pMessage, 0);
+
+	PathfindingDebugContent* pContent = new PathfindingDebugContent(mpPathfinder);
+	mpDebugDisplay = new DebugDisplay(Vector2D(0, 12), pContent);
+}
+
+void GameApp::UpdatePaths()
+{
+	// send a message to keep drawing whenever we click
+	GameMessage* pMessage = new PathToMessage(mLastPos, mPos);
+	mpMessageManager->addMessage(pMessage, 0);
 }

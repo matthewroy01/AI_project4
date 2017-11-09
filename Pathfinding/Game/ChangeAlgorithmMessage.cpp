@@ -23,12 +23,14 @@ void ChangeAlgorithmMessage::process()
 		case 0:
 		{
 			std::cout << "ChangeAlgorithmMessage: switching to Dijkstra" << std::endl;
+			mApp->changeAlgorithm(0);
 			mApp->getPathfinder()->setCurrentColor(mR, mG, mB);
 			break;
 		}
 		case 1:
 		{
 			std::cout << "ChangeAlgorithmMessage: switching to A*" << std::endl;
+			mApp->changeAlgorithm(1);
 			mApp->getPathfinder()->setCurrentColor(mR, mG, mB);
 			break;
 		}

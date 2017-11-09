@@ -98,6 +98,7 @@
     <ClInclude Include="PathfindingDebugContent.h" />
     <ClInclude Include="PathToMessage.h" />
     <ClInclude Include="ChangeAlgorithmMessage.h" />
+    <ClInclude Include="UpdatePathsMessage.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AStarPathfinder.cpp" />
@@ -119,6 +120,7 @@
     <ClCompile Include="PathfindingDebugContent.cpp" />
     <ClCompile Include="PathToMessage.cpp" />
     <ClCompile Include="ChangeAlgorithmMessage.cpp" />
+    <ClCompile Include="UpdatePathsMessage.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

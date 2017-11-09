@@ -7,11 +7,15 @@
 #include "GameApp.h"
 
 #include "ChangeAlgorithmMessage.h"
+#include "PathToMessage.h"
+#include "UpdatePathsMessage.h"
 
 InputManager::InputManager()
 {
 	mDdown = false;
 	mAdown = false;
+	mM1down = false;
+	mM2down = false;
 
 	pGameApp = dynamic_cast<GameApp*>(gpGame);
 
@@ -48,6 +52,8 @@ void InputManager::Update()
 	//get current keyboard state
 	al_get_keyboard_state(&keyState);
 
+	al_get_mouse_state(&mouseState);
+
 	//if 'escape' key was down then exit the loop
 	if (al_key_down(&keyState, ALLEGRO_KEY_ESCAPE))
 	{
@@ -70,7 +76,29 @@ void InputManager::Update()
 		pGameApp->getMessageManager()->addMessage(pMessage, 0);
 	}
 
+	// changes the start position to the mouse position
+	if (al_mouse_button_down(&mouseState, 1) && !mM1down)
+	{
+		mM1down = true;
+		pGameApp->setPos(Vector2D(mouseState.x, mouseState.y));
+
+		GameMessage* pMessage = new UpdatePathsMessage();
+		pGameApp->getMessageManager()->addMessage(pMessage, 0);
+	}
+
+	// changes the end position to the mouse position
+	if (al_mouse_button_down(&mouseState, 2) && !mM2down)//left mouse click
+	{
+		mM2down = true;
+		pGameApp->setLastPos(Vector2D(mouseState.x, mouseState.y));
+
+		GameMessage* pMessage = new UpdatePathsMessage();
+		pGameApp->getMessageManager()->addMessage(pMessage, 0);
+	}
+
 	// check to see if you're still pressing the button so you can't create or delete a unit by just holding the key
 	if (!al_key_down(&keyState, ALLEGRO_KEY_D)) { mDdown = false; }
 	if (!al_key_down(&keyState, ALLEGRO_KEY_A)) { mAdown = false; }
+	if (!al_mouse_button_down(&mouseState, 1)) { mM1down = false; }
+	if (!al_mouse_button_down(&mouseState, 2)) { mM2down = false; }
 }

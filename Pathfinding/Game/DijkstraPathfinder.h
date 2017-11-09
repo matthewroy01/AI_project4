@@ -2,10 +2,8 @@
 #define DIJKSTRAPATHFINDER_H
 
 #include "GridPathfinder.h"
-#include <list>
 #include <vector>
 #include <queue>
-#include <algorithm>
 
 class Path;
 class Graph;
