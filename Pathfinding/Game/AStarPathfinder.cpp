@@ -209,13 +209,17 @@ NodeRecord* AStarPathfinder::getSmallestCost(std::vector<NodeRecord*> vect, Node
 	// in A*, we also need to check a distance between the current node and the goal
 	Vector2D toPos, fromPos;
 
+	// get the position of the goal
 	toPos = mpGrid->getULCornerOfSquare(to->getId());
 
+	// set tmp variables to start
 	NodeRecord* tmp = vect[0];
 	float tmpDistance = 9999999999;
 	for (unsigned int i = 0; i < vect.size(); i++)
 	{
+		// get the position of the current node
 		fromPos = mpGrid->getULCornerOfSquare(vect[i]->mNode->getId());
+		// if the distance is smaller than tmpDistance, then replace tmpDistance and set tmp as the current node
 		if (getDistance(toPos, fromPos) < tmpDistance)
 		{
 			tmpDistance = getDistance(toPos, fromPos);

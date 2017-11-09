@@ -128,9 +128,6 @@
     <ClCompile Include="PathfindingDebugContent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DijkstraPathfinding.cpp">
-      <Filter>Source Files\pathfinding</Filter>
-    </ClCompile>
     <ClCompile Include="AStarPathfinder.cpp">
       <Filter>Source Files\pathfinding</Filter>
     </ClCompile>
@@ -142,6 +139,9 @@
     </ClCompile>
     <ClCompile Include="UpdatePathsMessage.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DijkstraPathfinder.cpp">
+      <Filter>Source Files\pathfinding</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
